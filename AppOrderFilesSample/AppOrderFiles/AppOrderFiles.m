@@ -56,7 +56,7 @@ void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
     OSAtomicEnqueue(&queue, node, offsetof(PCNode, next));
 }
 
-extern void AppOrderFiles(void(^completion)(NSString *orderFilePath)) {
+CODE_EXPORT void AppOrderFiles(void(^completion)(NSString *orderFilePath)) {
     collectFinished = YES;
     __sync_synchronize();
     NSString *functionExclude = [NSString stringWithFormat:@"_%s", __FUNCTION__];
