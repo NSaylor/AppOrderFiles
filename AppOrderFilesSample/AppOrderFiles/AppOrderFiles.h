@@ -14,5 +14,11 @@ FOUNDATION_EXPORT double AppOrderFilesVersionNumber;
 //! Project version string for AppOrderFiles.
 FOUNDATION_EXPORT const unsigned char AppOrderFilesVersionString[];
 
-extern void AppOrderFiles(void(^completion)(NSString *orderFilePath));
+#ifdef __cplusplus
+#define CODE_EXPORT extern "C"
+#else
+#define CODE_EXPORT extern
+#endif
+
+CODE_EXPORT void AppOrderFiles(void(^completion)(NSString *orderFilePath));
 
